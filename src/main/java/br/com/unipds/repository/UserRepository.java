@@ -16,7 +16,7 @@ public class UserRepository {
             ps.setString(2, user.getEmail());
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException("Falha ao salvar usuário", e);
+            throw new RuntimeException("error.user.insert", e);
         }
     }
 }
