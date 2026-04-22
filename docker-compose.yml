@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:9.5.0
+    container_name: mysql-dev
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - TZ=America/Manaus
+    command: >
+      mysqld
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_0900_ai_ci
+    volumes:
+      - ./data:/var/lib/mysql
+
+networks:
+  default:
+    name: mysql-net
